@@ -1,4 +1,4 @@
-# Essay-meter
+# Essay-Grader
 
 A project where it evaluates people's essay and it keep track of their scores
 
