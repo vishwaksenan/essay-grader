@@ -15,7 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
+from dashboard import views as dashboard_views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+    path('', dashboard_views.home, name="homepage-name"),
+    path('dashboard',dashboard_views.dashboard, name="dashboard-name"),
+    
+]+static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
+
+
+
