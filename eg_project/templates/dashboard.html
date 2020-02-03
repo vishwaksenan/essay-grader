@@ -1,13 +1,169 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset='utf-8'>
-  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-  <title>Dashboard</title>
-  <meta name='viewport' content='width=device-width, initial-scale=1'>
- 
-</head>
-<body>
-  <h1>Welcome to Dashboard</h1>
-</body>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Google Fonts CDN -->
+		<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+		<!-- Chart.js CDN -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}">
+		<!-- Bootstrap CDN -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+		<!-- jQuery Link -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<!-- JS -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+		<title>Dashboard</title>
+	</head>
+	<body>
+		<div class="background"></div>
+		<nav class="navbar navbar-expand-md navbar-dark">
+  			<a class="navbar-brand logo" href="index.html">Frontier Services</a>
+  			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    			<span class="navbar-toggler-icon">
+    				<i class="fa fa-bars" aria-hidden="true"></i>
+    			</span>
+  			</button>
+  			<div class="collapse navbar-collapse" id="collapsibleNavbar">
+    			<ul class="navbar-nav">
+      				<li class="nav-item">
+        				<a class="nav-link" href="#">How does this work</a>
+      				</li>
+      			</ul>
+      			<ul class="navbar-nav ml-auto">
+      				<li class="nav-item">
+        				<a class="nav-link" href="#">Login </a>
+      				</li>
+			      	<li class="nav-item">
+			        	<a class="nav-link" href="#">Register</a>
+			      	</li>    
+    			</ul>
+  			</div>
+		</nav>
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+					<div class="dashboard-title">
+						<a href="dashboard.html">
+							<div class="title">DASHBOARD</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<section class="data">
+			<div class="container h-100">
+				<div class="row h-100">
+					<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+						<div class="user-container">
+							<div class="row">
+								<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+									<div class="title">User's Details</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+									<div class="attribute">Name:</div>
+								</div>
+								<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+									<div class="answer">Admin</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+									<div class="attribute">Contact Number:</div>
+								</div>
+								<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+									<div class="answer">XXXXXXXXXX</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+									<div class="attribute">Number of Tests Appeared:</div>
+								</div>
+								<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+									<div class="answer">--</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+									<div class="attribute">Good At:</div>
+								</div>
+								<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+									<div class="answer">--</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+									<div class="attribute">Bad At:</div>
+								</div>
+								<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+									<div class="answer">--</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-1 col-lg-1 col-md-1 col-sm-12 col-12 h-100">
+						<a href="{% url 'dashboard-url' %}">
+							<input type="button" id="evaluate" class="btn btn-primary evaluate-btn" value="Evaluate">
+						</a>		
+					</div>
+					<div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-12">
+						<div class="chart">
+							<canvas class="performance-graph" id="graph" width="700" height="500"></canvas>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- JS for Chart -->
+			<script>
+				var ctx = document.getElementById('graph').getContext('2d');
+				var mychart = new Chart(ctx, {
+					type:'radar',
+					data:{
+						labels:['Test 1', 'Test 2', 'Test 3', 'Test 4', 'Test 5'],
+						datasets:[{
+							label: 'Grades',
+							data:[6.5, 7.5, 7.0, 8.5, 6.0],
+							backgroundColor:[
+								'rgba(255, 99, 132, 0.6)',
+								'rgba(54, 162, 235, 0.6)',
+								'rgba(75, 192, 192, 0.6)',
+								'rgba(103, 102, 240, 0.6)',
+								'rgba(255, 132, 99, 0.6)',
+							],
+						}]
+					},
+					options:{
+						title:{
+							display:true,
+							text:'Performance Analysis of Tests',
+							fontSize:'25'
+						},
+					}
+				});
+			</script>
+		</section>
+		
+		<div class="goals-services">
+			<div class="container">
+				<div class="row">
+					<div class="offset-xl-1 col-xl-4 offset-lg-1 col-lg-4 offset-md-1 col-md-4 col-sm-12 col-12">
+						<div class="sub-container">
+							<div class="heading">OUR GOALS</div>
+							<div class="desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</div>
+						</div>
+					</div>
+					<div class="offset-xl-1 col-xl-4 offset-lg-1 col-lg-4 offset-md-1 col-md-4 col-sm-12 col-12">
+						<div class="sub-container">
+							<div class="heading">OUR SERVICES</div>
+							<div class="desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</div>
+						</div>
+					</div>
+				</div>	
+			</div>
+	</body>
 </html>

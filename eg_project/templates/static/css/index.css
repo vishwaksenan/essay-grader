@@ -1,0 +1,47 @@
+.background{
+	background-color: #22004A;
+    height: 110%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+.logo{
+	font-weight: 600;
+}
+.text-area{
+	margin-top: 20px;
+}
+.evaluate-btn{
+	font-size: 13px;
+    font-weight: 600!important;
+    color: #fff;
+    cursor: pointer;
+    margin: 25px 0 0;
+    height: 40px;
+    letter-spacing: 0.125rem;
+    text-align: center;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 4px;
+    transition: all .4s ease-in-out;
+    background-image: linear-gradient(to right, #0af, #4481eb, #04befe, #128abc);
+    box-shadow: 0 0.5rem 1rem rgba(65,132,234,0.75);
+}
+.head{
+	text-align: center;
+	color: #fff;
+}
+.divider{
+    background: #fff;
+    height: 5px;
+    width: 50px;
+    margin: 0 auto;
+}
+.desc{
+	color: #fff;
+}
+@media screen and (max-width: 767px){
+	.evaluate-btn{
+		width: 100%;
+	}
+}

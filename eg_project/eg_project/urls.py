@@ -22,8 +22,8 @@ from dashboard import views as dashboard_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', dashboard_views.home, name="homepage-name"),
-    path('dashboard',dashboard_views.dashboard, name="dashboard-name"),
+    path('', dashboard_views.home, name="homepage-url"),
+    path('dashboard',dashboard_views.dashboard, name="dashboard-url"),
     
 ]+static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
 
