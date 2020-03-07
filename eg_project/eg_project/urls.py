@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', dashboard_views.home, name="homepage-url"),
     path('dashboard',dashboard_views.dashboard, name="dashboard-url"),
+    path('evaluate',dashboard_views.evaluate,name="evaluate-url"),
     
 ]+static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
 

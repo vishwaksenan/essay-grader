@@ -1,4 +1,4 @@
-$(document).ready(function(){
+/*$(document).ready(function(){
   var arrow = $('.arrow-up');
   var form = $('.login-form');
   var status=false;
@@ -15,7 +15,7 @@ $(document).ready(function(){
     }
   })
 })
-
+*/
 function getCookie(name) {
   var cookieValue = null;
   if (document.cookie && document.cookie !== '') {
@@ -32,7 +32,9 @@ function getCookie(name) {
   return cookieValue;
 }
 
+
 var csrftoken = getCookie('csrftoken')
+/*
 $(document).on('submit','#loginform',function(e){
   e.preventDefault();
   $.ajax({
@@ -49,5 +51,24 @@ $(document).on('submit','#loginform',function(e){
       $('#3').text(data.blue)
     }
   })
+})
+*/
+
+$(document).ready(function(e){
+  e.preventDefault();
+  $("evbutton").click(function(){
+    if($("evaluate_text").value!==""){
+      //var input = document.getElementById("evaluate_text").value;
+        $.ajax({
+          'type': 'POST',
+          'url': '/evaluate',
+          'data':{
+            'text':$("evaluate_text").val(),
+            'csrfmiddlewaretoken':csrftoken
+          }
+        })
+    }
+  })
+
 })
   

@@ -8,7 +8,7 @@ def home(request):
     """
     This view renders the home page
     """
-    return render(request,"dashboard.html",context={})
+    return render(request,"index_dashboard.html",context={})
 
 def dashboard(request):
     # if(request.method == 'POST'):
@@ -21,4 +21,9 @@ def dashboard(request):
     #     context['blue'] = 2
     #     context['red'] = 3
     # return JsonResponse(context)
-    return render(request,"index.html",context={})
+    return render(request,"evaluate.html",context={})
+
+def evaluate(request):
+    if(request.method == 'POST'):
+        text = request.POST['text']
+
