@@ -1,9 +1,9 @@
 from django.shortcuts import render
 #from django.db import models
 from django.http import HttpResponse
-from django.http import JsonResponse
+#from django.http import JsonResponse
 from dashboard.models import user
-
+import language_check
 def home(request):
     """
     This view renders the home page
@@ -26,4 +26,15 @@ def dashboard(request):
 def evaluate(request):
     if(request.method == 'POST'):
         text = request.POST['text']
+        tool = language_check.LanguageTool('en-US')
+        matches = tool.check(text)
+        changes = len(matches)
+        context={}
+        context['value']= changes
+        print("123")
+        print("value: ", changes)
+        return HttpResponse(context)
+
+
+
 

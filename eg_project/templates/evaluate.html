@@ -6,15 +6,23 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- Chart.js CDN -->
 		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="{% static "css/evaluate.css" %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/evaluate.css' %}">
 		<!-- Bootstrap CDN -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 		<!-- jQuery Link -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<!-- JS -->
+	<!--<script src="{% static 'js/script.js' %}"></script> -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 		<title>Essay Grader</title>
 	</head>
+	<script type="javascript/text">
+		$(document).ready(function(){
+			$("evbutton").click(function(){
+				alert("123123123");
+			});
+		});
+	</script>
 	<body>
 		<div class="background"></div>
 		<nav class="navbar navbar-expand-md navbar-dark">
@@ -53,12 +61,12 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-						<input name="evbutton" type="button" id="evaluate" class="btn btn-primary evaluate-btn" value="Evaluate">	
+						<input name="evbutton" type="button" class="btn btn-primary evaluate-btn" value="Evaluate">	
 					</div>
 				</div>
 			</div>
 			<div>
-				<span id="gcheck"></span>
+				<span id="gcheck">_lorem</span>
 			</div>
 		</section>
 	</body>
