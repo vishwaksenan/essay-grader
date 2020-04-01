@@ -1,25 +1,3 @@
-
-$(document).ready(function(){
-  //e.preventDefault();
-  alert("sample1")
-  $("evbutton").click(function(){
-    if($("evaluate_text").value!=""){
-      //var input = document.getElementById("evaluate_text").value;
-        $.ajax({
-          'type': 'POST',
-          'url': '/evaluate',
-          'data':{
-            'text':$("evaluate_text").val(),
-            'csrfmiddlewaretoken':csrftoken
-          },
-          'success':function(data){
-            $("#gcheck").prepend(data.value)
-          }
-        })
-    }
-  })
-
-})
 function getCookie(name) {
   var cookieValue = null;
   if (document.cookie && document.cookie !== '') {
@@ -35,6 +13,28 @@ function getCookie(name) {
   }
   return cookieValue;
 }
+
 var csrftoken = getCookie('csrftoken')
+
+$(document).on('submit','#form_evaluate',function(e){
+  e.preventDefault();
+  alert("sample1")
+  
+        $.ajax({
+          type: 'POST',
+          url: '/evaluate',
+            data:{
+              evaluate_td:$("evaluate_text").val(),
+              csrfmiddlewaretoken:csrftoken
+            },
+          success:function(data){
+            $("#gcheck").prepend(data.value)
+          } 
+        }) 
+    
+  })
+
+  
+
 
   

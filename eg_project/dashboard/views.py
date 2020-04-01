@@ -25,7 +25,7 @@ def dashboard(request):
 
 def evaluate(request):
     if(request.method == 'POST'):
-        text = request.POST['text']
+        text = request.POST.get('evaluate_td')
         tool = language_check.LanguageTool('en-US')
         matches = tool.check(text)
         changes = len(matches)
