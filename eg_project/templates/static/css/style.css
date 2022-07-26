@@ -1,0 +1,113 @@
+body{
+    margin:0;
+    padding:0;
+    position: relative;
+    background: rgb(212, 212, 212);
+}
+nav{
+    width: 100%;
+    height: 100px;
+    position: relative;
+    background: aqua;
+    box-shadow: 0px 2px 28px 0px #333 ;
+
+}
+.nav-container{
+   width: 1000px;
+   margin: 0 auto;
+   position: relative;
+   background: aqua;
+}
+.nav-container>.logo{
+    width: 200px;
+    height: 100px;
+    float: left;
+}
+.login-main{
+    width: 100%;
+    height: 100px;
+    background: aqua;
+}
+.login-main>.login-content{
+    width: 200px;
+    height: 100px;
+    float:right;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    color: #fff;
+    line-height: 100px;
+}
+.login-main>.login-content>a{
+    color: #fff;
+    text-decoration: none;
+}
+.arrow-up{
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid #fff;
+    right: 155px;
+    top: 62px;
+    display: none;
+}
+.login-form{
+    position:absolute;
+    width: 300px;
+    height: auto;
+    background:#fff;
+    right: 27px;
+    top: 82px;
+    border-radius: 2px;
+    border-bottom: 5px solid grey;
+    display:none;
+}
+.login-form>form{
+    width: 250px;
+    margin: 25px auto;
+    font-size:16px;
+    font-family: Arial, Helvetica, sans-serif;
+    color:grey;
+    letter-spacing: -0.05em;
+}
+input[type="text"],input[type="password"]{
+    width: 240px;
+    height: 20px;
+    border:0px;
+    outline: none;
+    box-shadow:inset 0 0 10px rgb(212, 212, 212);;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+input[type="submit"]{
+    width: 96%;
+    height: 32px;
+    background: aqua;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    outline:none;
+    border: 0px;
+    border-radius: 3px;
+    letter-spacing: -0.05em;
+    cursor: pointer;
+}
+input[type="submit"]:hover{
+    background: rgb(0, 175, 175);
+}
+.forgot-pass{
+    text-decoration:none;
+    position:relative;
+    top:20px;
+    font-size: 16px;
+    color: grey;
+}
+
+
